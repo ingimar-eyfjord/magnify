@@ -3,19 +3,12 @@ const svg = document.querySelector("svg");
 // get the smallImage
 const smallimage = document.querySelector(".Sanfransisco");
 // add eventlistener and start the function
-svg.addEventListener("mousemove", moveCircle);
-
-function moveCircle(event) {
-  // constants that We need to use in this function.
-  const magnifyIngGlass = document.querySelector("#circle");
-  const clipCircle = document.querySelector("#clipcircle");
-  const largeImage = document.querySelector(".largeImage");
-  const largeImage2 = document.querySelector(".largeImage2");
-
+svg.addEventListener("mousemove", calc);
+function calc(event) {
   // Here i'm getting the position of the mouse on the svg relative to the document.
   // so if youre in the top left corner of the image, it's 0 0, that way we can math out everything
   // relative to the svg coordinates.
-  var rect = this.getBoundingClientRect(),
+  const rect = this.getBoundingClientRect(),
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   // X and Y end up as the coordinates on the SVG image
@@ -24,7 +17,14 @@ function moveCircle(event) {
   // Native sizes is the sizes of the small image, so you could dynamically add and change image sizes.
   let native_height = getimgHeight();
   let native_width = getimgWidth();
-
+  moveCircle(X, Y, native_height, native_width);
+}
+function moveCircle(X, Y, native_height, native_width) {
+  // constants that We need to use in this function.
+  const magnifyIngGlass = document.querySelector("#circle");
+  const clipCircle = document.querySelector("#clipcircle");
+  const largeImage = document.querySelector(".largeImage");
+  const largeImage2 = document.querySelector(".largeImage2");
   // here is the start of the mgnifying function, I wanted to activate the glass when you go over the image and dissapear wehn you leave but
   // the way the event listener is created it just stops calculating when youre off the image so this is always true in a sense (when over the image).
   // Gonna look at this when I have time...
