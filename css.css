@@ -15,11 +15,15 @@
 .largeImage2 {
   pointer-events: none;
 }
-.link {
+.link,
+.file {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translatex(-50%);
+}
+.file {
+  top: 15%;
 }
 svg {
   position: absolute;

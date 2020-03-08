@@ -1,3 +1,22 @@
+// Event listener to activate the other event listener
+window.addEventListener("load", function() {
+  //upload an image to try the effect on.
+  document
+    .querySelector('input[type="file"]')
+    // The other event listener
+    .addEventListener("change", function() {
+      // find the images where you want to replace the href on.
+      const img = document.querySelectorAll(".myImg");
+      // make look to change both images
+      img.forEach(e => {
+        //make href const
+        const href = URL.createObjectURL(this.files[0]);
+        //set the href on bot the images
+        e.setAttribute("href", href);
+      });
+    });
+});
+
 // get the svg element.
 const svg = document.querySelector("svg");
 // get the smallImage

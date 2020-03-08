@@ -6,13 +6,18 @@
     <title>Manifying glass</title>
     <link rel="stylesheet" href="css.css" />
   </head>
-  <a class="link" href="https://github.com/ingimar-eyfjord/magnify.git"
-    ><h1>Git hub repo</h1></a
-  >
+
   <body>
+    <a class="link" href="https://github.com/ingimar-eyfjord/magnify.git"
+      ><h1>Git hub repo</h1></a
+    >
+    <div class="file">
+      <h2>Upload an image and try the effect on it</h2>
+      <input type="file" />
+    </div>
     <svg>
       <image
-        class="Sanfransisco"
+        class="Sanfransisco myImg"
         href="img/Capture.PNG"
         height="500px"
         width="1000px"
@@ -21,7 +26,7 @@
       ></image>
       <g class="largeImage" clip-path="url(#clipclip)">
         <image
-          class="largeImage2"
+          class="largeImage2 myImg"
           href="img/Capture.PNG"
           id="clipped-image"
           height="1000px"
