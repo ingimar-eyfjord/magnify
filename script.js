@@ -16,6 +16,65 @@ window.addEventListener("load", function() {
       });
     });
 });
+// MDM example of using Keydown and Mouse down.
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+let rightPressed = false;
+let leftPressed = false;
+let upPressed = false;
+let downPressed = false;
+
+// IN this function you find out which key is being pressed and se the let value to be true if beign pressed
+function keyDownHandler(event) {
+  if (event.keyCode == 39) {
+    rightPressed = true;
+  } else if (event.keyCode == 37) {
+    leftPressed = true;
+  }
+  if (event.keyCode == 40) {
+    downPressed = true;
+  } else if (event.keyCode == 38) {
+    upPressed = true;
+  }
+  //call this function to get X and Y coordinates
+  move();
+}
+// IN this function you find out which key is being pressed and se the let value to be true if beign pressed
+function keyUpHandler(event) {
+  if (event.keyCode == 39) {
+    rightPressed = false;
+  } else if (event.keyCode == 37) {
+    leftPressed = false;
+  }
+  if (event.keyCode == 40) {
+    downPressed = false;
+  } else if (event.keyCode == 38) {
+    upPressed = false;
+  }
+  //call this function to get X and Y coordinates
+  move();
+}
+// had to make this variables global because having them inside the draw always reset the value.
+// i set these variables to be 1 because if either of them are 0 the if statment below won't work.
+let X = 1;
+let Y = 1;
+
+function move() {
+  if (rightPressed) {
+    X += 5;
+  } else if (leftPressed) {
+    X -= 5;
+  }
+  if (downPressed) {
+    Y += 5;
+  } else if (upPressed) {
+    Y -= 5;
+  }
+  // Native sizes is the sizes of the small image, so you could dynamically add and change image sizes.
+  let native_height = getimgHeight();
+  let native_width = getimgWidth();
+  moveCircle(X, Y, native_height, native_width);
+}
 
 // get the svg element.
 const svg = document.querySelector("svg");
@@ -33,6 +92,7 @@ function calc(event) {
   // X and Y end up as the coordinates on the SVG image
   const X = event.pageX - (rect.left + scrollLeft);
   const Y = event.pageY - (rect.top + scrollTop);
+
   // Native sizes is the sizes of the small image, so you could dynamically add and change image sizes.
   let native_height = getimgHeight();
   let native_width = getimgWidth();
@@ -47,7 +107,7 @@ function moveCircle(X, Y, native_height, native_width) {
   // here is the start of the mgnifying function, I wanted to activate the glass when you go over the image and dissapear wehn you leave but
   // the way the event listener is created it just stops calculating when youre off the image so this is always true in a sense (when over the image).
   // Gonna look at this when I have time...
-  console.log(X, Y);
+
   if (X < native_width && Y < native_height && X > 0 && Y > 0) {
     largeImage.classList.add("active");
     clipCircle.style.display = "block";
@@ -68,6 +128,7 @@ function moveCircle(X, Y, native_height, native_width) {
     largeImage2.setAttribute("y", Y * -1);
   }
 }
+
 // here are some blackbox functions to get the widths and heights, would be so much easier with Jquery but whatever...
 function getimgWidth() {
   const positionInfo = smallimage.getBoundingClientRect();
