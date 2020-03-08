@@ -16,6 +16,10 @@ window.addEventListener("load", function() {
       });
     });
 });
+// had to make this variables global because having them inside the draw always reset the value.
+// i set these variables to be 1 because if either of them are 0 the if statment below won't work.
+let X = 1;
+let Y = 1;
 // MDM example of using Keydown and Mouse down.
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -54,10 +58,6 @@ function keyUpHandler(event) {
   //call this function to get X and Y coordinates
   move();
 }
-// had to make this variables global because having them inside the draw always reset the value.
-// i set these variables to be 1 because if either of them are 0 the if statment below won't work.
-let X = 1;
-let Y = 1;
 
 function move() {
   if (rightPressed) {
@@ -90,8 +90,8 @@ function calc(event) {
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   // X and Y end up as the coordinates on the SVG image
-  const X = event.pageX - (rect.left + scrollLeft);
-  const Y = event.pageY - (rect.top + scrollTop);
+  X = event.pageX - (rect.left + scrollLeft);
+  Y = event.pageY - (rect.top + scrollTop);
 
   // Native sizes is the sizes of the small image, so you could dynamically add and change image sizes.
   let native_height = getimgHeight();
