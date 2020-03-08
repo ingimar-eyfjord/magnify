@@ -39,8 +39,8 @@ function moveCircle(X, Y, native_height, native_width) {
     clipCircle.setAttribute("cy", Y);
     magnifyIngGlass.setAttribute("cx", X);
     magnifyIngGlass.setAttribute("cy", Y);
-    // litterally just tried out different calculations for this and stumbled on this one, so -1 is the key, as it will ofsett it so it's in the right location
-    //, so this function would tecnhically only work if the larger image is exactly 2x the size.
+    // litterally just tried out different calculations for this and stumbled on this one, so -1 is the key, as it will ofsett it in the opisite direction so it's in the
+    //right location, so this function would tecnhically only work if the larger image is exactly 2x the size.
     largeImage2.setAttribute("x", X * -1);
     largeImage2.setAttribute("y", Y * -1);
   }
