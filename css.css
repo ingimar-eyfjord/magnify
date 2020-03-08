@@ -18,7 +18,6 @@
 }
 .largeImage2 {
   pointer-events: none;
-  background-image: url(capture.png);
 }
 
 svg {
