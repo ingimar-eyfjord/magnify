@@ -26,6 +26,6 @@ svg {
   right: 50%;
   top: 50%;
   transform: translate(50%, -50%);
-  width: 50vw;
-  height: 25vw;
+  width: 100vw;
+  height: 50vw;
 }
