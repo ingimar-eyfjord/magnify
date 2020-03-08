@@ -28,10 +28,14 @@ function moveCircle(X, Y, native_height, native_width) {
   // here is the start of the mgnifying function, I wanted to activate the glass when you go over the image and dissapear wehn you leave but
   // the way the event listener is created it just stops calculating when youre off the image so this is always true in a sense (when over the image).
   // Gonna look at this when I have time...
+  console.log(X, Y);
   if (X < native_width && Y < native_height && X > 0 && Y > 0) {
     largeImage.classList.add("active");
+    clipCircle.style.display = "block";
+    magnifyIngGlass.style.display = "block";
   } else {
-    largeImage.classList.remove("active");
+    clipCircle.style.display = "none";
+    magnifyIngGlass.style.display = "none";
   }
   if (largeImage.classList.contains("active")) {
     // here I'm setting the coordinates of the glass and cicles and the large image.
