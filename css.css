@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Sanfransisco {
+  /* width: 50vw;
+  height: 25vw; */
+}
+#clipped {
+  margin-bottom: 20px;
+  pointer-events: none;
+  clip-path: url(#clipcircle);
+}
+.largeImage {
+  pointer-events: none;
+  position: fixed;
+}
+.largeImage2 {
+  pointer-events: none;
+  background-image: url(capture.png);
+}
+
+svg {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 50vw;
+  height: 25vw;
+}
